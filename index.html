@@ -119,9 +119,10 @@
   //   /redirect?type=shop             → cabeauty://shop
   //   /redirect                       → cabeauty://home
 
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get('type') || 'home';
-  const id   = params.get('id')   || '';
+  const hash   = window.location.hash.slice(1); // enlève le #
+  const params = new URLSearchParams(hash);
+  const type   = params.get('type') || 'home';
+  const id     = params.get('id')   || '';
 
   // Construire le deep link
   let deepLink = 'cabeauty://home';
